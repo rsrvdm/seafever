@@ -11,12 +11,24 @@ const features = [
   { icon: Bath, label: 'Fully furnished' },
 ];
 
+const gallery = [
+  { src: '/photos/exterior.jpeg', alt: 'SeaFever beach house and garden with the ocean beyond', label: 'The house' },
+  { src: '/photos/lounge.jpeg', alt: 'SeaFever sunlit lounge', label: 'Lounge' },
+  { src: '/photos/main-bedroom.jpeg', alt: 'SeaFever main bedroom', label: 'Main bedroom' },
+  { src: '/photos/kitchen.jpeg', alt: 'SeaFever fully equipped kitchen', label: 'Full kitchen' },
+  { src: '/photos/twin-bedroom.jpeg', alt: 'SeaFever twin bedroom', label: 'Twin bedroom' },
+  { src: '/photos/patio.jpeg', alt: 'SeaFever covered garden patio', label: 'Covered patio' },
+  { src: '/photos/games-room.jpeg', alt: 'SeaFever games room with pool table', label: 'Games room' },
+  { src: '/photos/ocean-mural.jpeg', alt: 'Hand-painted ocean mural at SeaFever', label: 'A house with character' },
+  { src: '/photos/garden.jpeg', alt: 'SeaFever garden seating area', label: 'Private garden' },
+];
+
 export default function Home() {
   return <main>
     <section className="hero" id="home">
       <nav className="nav" aria-label="Main navigation">
         <a className="brand" href="#home" aria-label="SeaFever home"><span className="brand-mark">S</span><span>SEAFEVER</span></a>
-        <div className="nav-links"><a href="#stay">The stay</a><a href="#details">Details</a><a href="#location">Location</a></div>
+        <div className="nav-links"><a href="#stay">The stay</a><a href="#gallery">Gallery</a><a href="#details">Details</a><a href="#location">Location</a></div>
         <a className="nav-cta" href="#booking">Enquire <ArrowUpRight size={17}/></a>
       </nav>
       <div className="hero-shade" />
@@ -32,6 +44,19 @@ export default function Home() {
     <section className="intro" id="stay">
       <p className="section-kicker">Room to breathe</p>
       <div className="intro-grid"><h2>A proper seaside home, made for easy holidays.</h2><div className="intro-copy"><p>Wake to the sound of the ocean, wander straight onto the beach, and come home to a space that is entirely yours.</p><p>SeaFever is a fully furnished, free-standing self-catering house designed for unhurried family time, salty dogs and long summer evenings.</p></div></div>
+    </section>
+
+    <section className="gallery" id="gallery">
+      <div className="gallery-heading">
+        <div><p className="section-kicker">Take a look around</p><h2>Colourful, comfortable<br/><em>and unmistakably SeaFever.</em></h2></div>
+        <p>A laid-back coastal home with generous living spaces, a private garden and plenty of personality.</p>
+      </div>
+      <div className="gallery-grid">
+        {gallery.map((photo, index) => <figure className={`gallery-item gallery-item-${index + 1}`} key={photo.src}>
+          <img src={photo.src} alt={photo.alt} loading={index > 1 ? 'lazy' : 'eager'} />
+          <figcaption><span>{String(index + 1).padStart(2, '0')}</span>{photo.label}</figcaption>
+        </figure>)}
+      </div>
     </section>
 
     <section className="details" id="details">
