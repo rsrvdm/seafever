@@ -28,7 +28,7 @@ export default function Home() {
     <section className="hero" id="home">
       <nav className="nav" aria-label="Main navigation">
         <a className="brand" href="#home" aria-label="SeaFever home"><span className="brand-mark">S</span><span>SEAFEVER</span></a>
-        <div className="nav-links"><a href="#stay">The stay</a><a href="#gallery">Gallery</a><a href="#details">Details</a><a href="#location">Location</a></div>
+        <div className="nav-links"><a href="#stay">The stay</a><a href="#gallery">Gallery</a><a href="#pets">Pet friendly</a><a href="#location">Location</a></div>
         <a className="nav-cta" href="#booking">Enquire <ArrowUpRight size={17}/></a>
       </nav>
       <div className="hero-shade" />
@@ -56,6 +56,16 @@ export default function Home() {
           <img src={photo.src} alt={photo.alt} loading={index > 1 ? 'lazy' : 'eager'} />
           <figcaption><span>{String(index + 1).padStart(2, '0')}</span>{photo.label}</figcaption>
         </figure>)}
+      </div>
+    </section>
+
+    <section className="pets" id="pets">
+      <div className="pets-photo"><img src="/photos/dogs.jpeg" alt="A happy group of dogs enjoying SeaFever's private garden" loading="lazy" /></div>
+      <div className="pets-copy">
+        <p className="section-kicker">Four paws welcome</p>
+        <h2>Holidays are better with the whole family.</h2>
+        <p>SeaFever is proudly pet friendly, with a private garden and the beach just beyond the gate. Bring the dogs along—there’s room for everyone to settle in.</p>
+        <span className="pet-badge"><Dog size={18} strokeWidth={1.7}/> Pet-friendly stay</span>
       </div>
     </section>
 
